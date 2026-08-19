@@ -16,11 +16,15 @@ Open [http://127.0.0.1:8765/](http://127.0.0.1:8765/)
 
 **Do not** open `index.html` as `file://` — browser `fetch()` of JSON fixtures will fail.
 
+**Agents** automating the UI should read [docs/AGENTS.md](docs/AGENTS.md) for API schemas, curl examples, and the sequence-chart drag note.
+
 ## Interactive Gantt
 
 Drag flight and ground bars **horizontally within their tail lane** to reschedule. Positions snap to whole-hour boundaries on the 7-day timeline.
 
 ## Event push API
+
+See [docs/AGENTS.md](docs/AGENTS.md) for the full agent guide (schemas, workflows, Gantt note).
 
 The UI subscribes to `GET /api/events/stream` (Server-Sent Events). Push events with POST:
 
@@ -60,6 +64,21 @@ curl -s -X POST http://127.0.0.1:8765/api/desk \
   }'
 ```
 
+### POST `/api/briefing`
+
+```bash
+curl -s -X POST http://127.0.0.1:8765/api/briefing \
+  -H 'Content-Type: application/json' \
+  -d '{
+    "phase": "storm",
+    "headline": "Custom briefing headline from orchestrator.",
+    "bullets": ["Bullet one", "Bullet two"],
+    "actions": "Operator focus line.",
+    "status": "ACTIVE DISRUPTION",
+    "statusClass": "active"
+  }'
+```
+
 ### POST `/api/events` (unified)
 
 ```bash
@@ -94,11 +113,14 @@ Universe: **13,042** · Slice: **74** flights · **22** ground · **15** tails �
 
 ```
 server.py           Static + event API (use this to run)
+docs/
+  AGENTS.md         Agent API guide + sequence chart interaction
 index.html          Shell + buttons + Knox dialog
 styles.css          Charcoal glass visual system
 js/
   app.js            Phase machine + button wiring
   api.js            SSE client for pushed events
+  briefing.js       AI-assisted situation briefing panel
   gantt.js          Interactive 7×24 timeline
   pills.js          Agent pill states
   desk.js           Proposal desk + API push handler

@@ -59,6 +59,9 @@ class WarRoomHandler(SimpleHTTPRequestHandler):
         if path == "/api/desk":
             self.handle_post_target("desk")
             return
+        if path == "/api/slack":
+            self.handle_post_target("slack")
+            return
         if path == "/api/briefing":
             self.handle_post_target("briefing")
             return

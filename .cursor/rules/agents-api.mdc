@@ -1,0 +1,27 @@
+---
+description: Point agents to War Room API docs and Gantt interaction
+globs:
+alwaysApply: true
+---
+
+# OPSD War Room — agent integration
+
+When pushing updates into the War Room UI or briefing operators:
+
+1. **Read** [docs/AGENTS.md](docs/AGENTS.md) — full API schemas, curl examples, and workflows.
+2. **Run** `python3 server.py 8765` (not plain `http.server`) so POST and SSE work.
+3. **Push** via `POST /api/briefing`, `/api/desk`, `/api/slack`, or unified `/api/events`.
+
+## Quick reference
+
+| Target | Endpoint | Use for |
+|--------|----------|---------|
+| Operator catch-up | `POST /api/briefing` | Headline, bullets, operator focus |
+| Proposal desk | `POST /api/desk` | KPIs, cancels, stamps, notes |
+| Slack feed | `POST /api/slack` | `#opsd-war-room` messages |
+
+## Sequence chart (Gantt)
+
+Operators can **drag flight/ground bars horizontally within each tail lane** on the NetLine 7-day chart. Hour snap; local browser only — **no API for bar moves**. Mention this when guiding operators through what-if rescheduling.
+
+Do not claim OCC write-back or live Slack/NetLine connectivity.
