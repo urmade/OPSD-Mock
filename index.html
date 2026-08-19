@@ -7,8 +7,6 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="banner" id="banner">BOOTCAMP MOCK · NOT LIVE OCC · FIXTURE DATA</div>
-
   <header class="header glass">
     <div class="header-top">
       <h1 class="title">OPSD WAR ROOM · OPSD · FIXTURE</h1>
@@ -34,6 +32,7 @@
         <span class="legend-item"><span class="legend-swatch flight"></span> FLIGHT</span>
         <span class="legend-item"><span class="legend-swatch ground"></span> GROUND</span>
         <span class="legend-item"><span class="legend-swatch fra"></span> FRA</span>
+        <span class="legend-hint">Drag bars within lane to reschedule</span>
       </div>
     </div>
     <div class="gantt-wrap" id="gantt-wrap"></div>
@@ -56,6 +55,7 @@
           <tbody id="cancel-tbody"></tbody>
         </table>
         <div class="delay-row hidden" id="delay-row"></div>
+        <div class="desk-api-feed hidden" id="desk-api-feed" aria-label="API desk events"></div>
         <div class="grok-panel" id="grok-panel">
           <div class="grok-header">
             <span class="grok-label">GROK RECAP</span>

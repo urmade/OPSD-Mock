@@ -5,6 +5,7 @@ import { setFlightsData, initGantt, showStormBand } from './gantt.js';
 import { setDeskData, renderIdle, renderStorm, renderRevised, loadGrokRecap } from './desk.js';
 import { setSlackData, initSlack, appendStormMessages, appendRevisedMessages } from './slack.js';
 import { initKnox, showKnoxModal } from './knox.js';
+import { initApiStream } from './api.js';
 
 const PHASE = { IDLE: 'idle', STORM: 'storm', REVISED: 'revised', BLOCKED: 'blocked' };
 let phase = PHASE.IDLE;
@@ -92,11 +93,12 @@ async function init() {
     renderIdle();
     setAllPills('idle');
     updateButtons();
+    initApiStream();
   } catch (err) {
-    console.error('Fixture load failed — serve via http.server, not file://', err);
+    console.error('Fixture load failed — serve via server.py, not file://', err);
     document.body.insertAdjacentHTML(
       'beforeend',
-      '<p style="color:#c44;padding:20px">Failed to load fixtures. Run: python3 -m http.server 8765</p>'
+      '<p style="color:#c44;padding:20px">Failed to load fixtures. Run: python3 server.py 8765</p>'
     );
   }
 

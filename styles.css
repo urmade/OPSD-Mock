@@ -42,17 +42,6 @@ body {
   gap: 8px;
 }
 
-.banner {
-  background: var(--lh-yellow);
-  color: #0c0e12;
-  text-align: center;
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  padding: 6px 12px;
-  text-transform: uppercase;
-}
-
 .glass {
   background: var(--glass);
   border: 1px solid var(--hairline);
@@ -292,6 +281,9 @@ body {
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
+  cursor: grab;
+  touch-action: none;
+  user-select: none;
 }
 
 .gantt-bar.flight {
@@ -306,6 +298,20 @@ body {
 
 .gantt-bar.fra-touch {
   box-shadow: 0 0 0 1px var(--lh-yellow);
+}
+
+.gantt-bar.dragging {
+  cursor: grabbing;
+  z-index: 5;
+  opacity: 0.92;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+.legend-hint {
+  font-size: 9px;
+  color: var(--text-muted);
+  font-style: italic;
+  margin-left: 8px;
 }
 
 .storm-overlay {
@@ -480,6 +486,36 @@ body {
   color: var(--text-muted);
   margin: 0;
   line-height: 1.5;
+}
+
+.desk-api-feed {
+  margin-bottom: 10px;
+  max-height: 120px;
+  overflow-y: auto;
+  border: 1px solid var(--hairline);
+  border-radius: 3px;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.desk-api-item {
+  padding: 6px 8px;
+  border-bottom: 1px solid var(--hairline);
+  font-size: 11px;
+}
+
+.desk-api-item:last-child {
+  border-bottom: none;
+}
+
+.desk-api-title {
+  font-variant: small-caps;
+  font-size: 9px;
+  color: var(--lh-yellow);
+  margin-bottom: 2px;
+}
+
+.desk-api-text {
+  color: var(--text);
 }
 
 /* Slack */

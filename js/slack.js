@@ -1,4 +1,4 @@
-/** Mock Slack #opsd-war-room renderer */
+/** Mock Slack #opsd-war-room renderer + API push */
 
 let slackData = null;
 const feed = [];
@@ -7,11 +7,28 @@ export function setSlackData(data) {
   slackData = data;
 }
 
+function formatUtcTime() {
+  const now = new Date();
+  const h = String(now.getUTCHours()).padStart(2, '0');
+  const m = String(now.getUTCMinutes()).padStart(2, '0');
+  return `${h}:${m}`;
+}
+
 export function initSlack() {
   feed.length = 0;
   if (slackData?.idle) {
     feed.push(...slackData.idle);
   }
+  render();
+}
+
+export function pushMessage(msg) {
+  feed.push({
+    author: msg.author || 'API',
+    role: msg.role || 'EXTERNAL',
+    time: msg.time || formatUtcTime(),
+    text: msg.text || '',
+  });
   render();
 }
 
@@ -44,13 +61,21 @@ function render() {
     .map(
       (m) =>
         `<div class="slack-msg">
-          <span class="slack-author">${m.author}</span>
-          <span class="slack-role">${m.role}</span>
-          <span class="slack-time">${m.time}</span>
-          <p class="slack-text">${m.text}</p>
+          <span class="slack-author">${escapeHtml(m.author)}</span>
+          <span class="slack-role">${escapeHtml(m.role)}</span>
+          <span class="slack-time">${escapeHtml(m.time)}</span>
+          <p class="slack-text">${escapeHtml(m.text)}</p>
         </div>`
     )
     .join('');
 
   container.scrollTop = container.scrollHeight;
+}
+
+function escapeHtml(str) {
+  return String(str)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
 }
