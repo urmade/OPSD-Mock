@@ -93,10 +93,11 @@ Returns `{"ok": true, "service": "opsd-war-room"}`.
 
 ## Demo click path
 
-1. **Idle** — six IDLE pills, empty desk, Slack seed, Gantt chrome (74 flights · 15 tails · 7 days)
-2. **FRA thunderstorm 14:00–18:00** — red band on day 3, pills WORKING→DONE, desk **27 / 8 / 574**, Slack stream, Grok stub
-3. **Human reject 3 cancels** — drop LH400, OS211, SN315 from cancel set → **5 / 267**, stamp `REVISED · HUMAN EDIT`, crew **6→4**, LH400 delay/swap
-4. **Apply to OCC** — Knox modal refuses, Knox pill BLOCKED, desk `BLOCKED · KNOX`, Slack refuse; demo Apply does not mutate Gantt (manual drag still works)
+App **loads in thunderstorm phase** (storm band, desk 27/8/574, briefing, Slack stream, pills DONE).
+
+1. **Storm (initial)** — red band on day 3, pills DONE, desk **27 / 8 / 574**, AI briefing, Slack seed + storm posts
+2. **Human reject 3 cancels** — drop LH400, OS211, SN315 from cancel set → **5 / 267**, stamp `REVISED · HUMAN EDIT`, crew **6→4**, LH400 delay/swap
+3. **Apply to OCC** — Knox modal refuses, Knox pill BLOCKED, desk `BLOCKED · KNOX`, Slack refuse; demo Apply does not mutate Gantt (manual drag still works)
 
 ## Fixture numbers (UI contracts)
 

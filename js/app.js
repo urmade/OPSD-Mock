@@ -2,20 +2,19 @@
 
 import { initPills, animateStormPills, setAllPills } from './pills.js';
 import { setFlightsData, initGantt, showStormBand } from './gantt.js';
-import { setDeskData, renderIdle, renderStorm, renderRevised, loadGrokRecap } from './desk.js';
+import { setDeskData, renderStorm, renderRevised, loadGrokRecap } from './desk.js';
 import { setSlackData, initSlack, appendStormMessages, appendRevisedMessages } from './slack.js';
 import { initKnox, showKnoxModal } from './knox.js';
 import { initApiStream } from './api.js';
 import {
   setBriefingData,
-  initBriefing,
   renderBriefingStorm,
   renderBriefingRevised,
   renderBriefingBlocked,
 } from './briefing.js';
 
 const PHASE = { IDLE: 'idle', STORM: 'storm', REVISED: 'revised', BLOCKED: 'blocked' };
-let phase = PHASE.IDLE;
+let phase = PHASE.STORM;
 
 async function loadFixtures() {
   const [flights, brief, slack] = await Promise.all([
@@ -49,17 +48,26 @@ function startClock() {
   setInterval(tick, 1000);
 }
 
-async function onStorm() {
-  if (phase !== PHASE.IDLE) return;
+async function applyStormPhase({ animatePills = false } = {}) {
   phase = PHASE.STORM;
   updateButtons();
-
   showStormBand(true);
-  await animateStormPills();
+
+  if (animatePills) {
+    await animateStormPills();
+  } else {
+    setAllPills('done');
+  }
+
   renderStorm();
   appendStormMessages();
   loadGrokRecap();
   renderBriefingStorm();
+}
+
+async function onStorm() {
+  if (phase !== PHASE.IDLE) return;
+  await applyStormPhase({ animatePills: true });
 }
 
 async function onReject() {
@@ -99,12 +107,10 @@ async function init() {
       sliceLabel.textContent = `SLICE ${flights.meta.sliceFlights} / ${flights.meta.universe.toLocaleString()}`;
     }
 
-    initGantt();
     initSlack();
-    initBriefing();
-    renderIdle();
-    setAllPills('idle');
-    updateButtons();
+    showStormBand(true);
+    initGantt();
+    await applyStormPhase({ animatePills: false });
     initApiStream();
   } catch (err) {
     console.error('Fixture load failed — serve via server.py, not file://', err);
