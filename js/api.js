@@ -2,6 +2,7 @@
 
 import { handleDeskPush } from './desk.js';
 import { pushMessage } from './slack.js';
+import { handleBriefingPush } from './briefing.js';
 
 let eventSource = null;
 
@@ -16,6 +17,7 @@ export function initApiStream() {
       if (event.type === 'connected') return;
       if (event.type === 'desk') handleDeskPush(event.payload);
       if (event.type === 'slack') pushMessage(event.payload);
+      if (event.type === 'briefing') handleBriefingPush(event.payload);
     } catch (err) {
       console.warn('API event parse error', err);
     }

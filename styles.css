@@ -327,6 +327,136 @@ body {
   display: none;
 }
 
+/* AI situation briefing — between OCC Gantt and proposal desk */
+.briefing-section {
+  padding: 12px 16px;
+  border-left: 3px solid var(--lh-yellow);
+}
+
+.briefing-header {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.briefing-title-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 1;
+  min-width: 200px;
+}
+
+.briefing-title {
+  font-size: 11px;
+  font-variant: small-caps;
+  letter-spacing: 0.08em;
+  margin: 0;
+  color: var(--lh-yellow);
+}
+
+.briefing-badge {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  padding: 2px 6px;
+  background: rgba(249, 186, 0, 0.12);
+  color: var(--lh-yellow);
+  border-radius: 2px;
+  border: 1px solid rgba(249, 186, 0, 0.25);
+}
+
+.briefing-status {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 600;
+  padding: 3px 8px;
+  border-radius: 2px;
+  border: 1px solid var(--hairline);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.briefing-status.monitoring {
+  color: var(--text-muted);
+  border-color: var(--hairline);
+}
+
+.briefing-status.active {
+  color: #e85;
+  border-color: rgba(220, 50, 50, 0.5);
+  background: rgba(220, 50, 50, 0.1);
+}
+
+.briefing-status.revised {
+  color: var(--working);
+  border-color: rgba(91, 155, 213, 0.5);
+  background: rgba(91, 155, 213, 0.08);
+}
+
+.briefing-status.blocked {
+  color: var(--blocked);
+  border-color: rgba(196, 68, 68, 0.5);
+  background: rgba(196, 68, 68, 0.1);
+}
+
+.briefing-updated {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  color: var(--text-muted);
+}
+
+.briefing-headline {
+  font-size: 14px;
+  font-weight: 600;
+  margin: 0 0 10px;
+  line-height: 1.35;
+  color: var(--text);
+}
+
+.briefing-bullets {
+  margin: 0 0 10px;
+  padding-left: 18px;
+  font-size: 12px;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+.briefing-bullets li {
+  margin-bottom: 4px;
+}
+
+.briefing-bullets li::marker {
+  color: var(--lh-yellow);
+}
+
+.briefing-actions-wrap {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  padding: 8px 10px;
+  background: rgba(0, 0, 0, 0.25);
+  border-radius: 3px;
+  border: 1px solid var(--hairline);
+}
+
+.briefing-actions-label {
+  font-variant: small-caps;
+  font-size: 9px;
+  color: var(--lh-yellow);
+  letter-spacing: 0.06em;
+  flex-shrink: 0;
+  padding-top: 1px;
+}
+
+.briefing-actions {
+  margin: 0;
+  font-size: 12px;
+  color: var(--text);
+  line-height: 1.45;
+}
+
 /* Bottom row */
 .bottom-row {
   display: grid;

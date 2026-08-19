@@ -6,6 +6,13 @@ import { setDeskData, renderIdle, renderStorm, renderRevised, loadGrokRecap } fr
 import { setSlackData, initSlack, appendStormMessages, appendRevisedMessages } from './slack.js';
 import { initKnox, showKnoxModal } from './knox.js';
 import { initApiStream } from './api.js';
+import {
+  setBriefingData,
+  initBriefing,
+  renderBriefingStorm,
+  renderBriefingRevised,
+  renderBriefingBlocked,
+} from './briefing.js';
 
 const PHASE = { IDLE: 'idle', STORM: 'storm', REVISED: 'revised', BLOCKED: 'blocked' };
 let phase = PHASE.IDLE;
@@ -52,6 +59,7 @@ async function onStorm() {
   renderStorm();
   appendStormMessages();
   loadGrokRecap();
+  renderBriefingStorm();
 }
 
 async function onReject() {
@@ -61,6 +69,7 @@ async function onReject() {
 
   renderRevised();
   appendRevisedMessages();
+  renderBriefingRevised();
 }
 
 function onApply() {
@@ -70,6 +79,7 @@ function onApply() {
 
   // Gantt unchanged — no schedule write-back
   showKnoxModal();
+  renderBriefingBlocked();
 }
 
 async function init() {
@@ -82,6 +92,7 @@ async function init() {
     setFlightsData(flights);
     setDeskData(flights, brief);
     setSlackData(slack);
+    setBriefingData(brief);
 
     const sliceLabel = document.getElementById('slice-label');
     if (sliceLabel) {
@@ -90,6 +101,7 @@ async function init() {
 
     initGantt();
     initSlack();
+    initBriefing();
     renderIdle();
     setAllPills('idle');
     updateButtons();

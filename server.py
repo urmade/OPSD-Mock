@@ -59,8 +59,8 @@ class WarRoomHandler(SimpleHTTPRequestHandler):
         if path == "/api/desk":
             self.handle_post_target("desk")
             return
-        if path == "/api/slack":
-            self.handle_post_target("slack")
+        if path == "/api/briefing":
+            self.handle_post_target("briefing")
             return
         self.send_error(404, "Not Found")
 
@@ -96,8 +96,8 @@ class WarRoomHandler(SimpleHTTPRequestHandler):
             data = self.read_json()
             target = data.get("target")
             payload = data.get("data", {})
-            if target not in ("desk", "slack"):
-                self.send_json({"error": "target must be desk or slack"}, 400)
+            if target not in ("desk", "slack", "briefing"):
+                self.send_json({"error": "target must be desk, slack, or briefing"}, 400)
                 return
             event = {
                 "id": str(uuid.uuid4()),
@@ -145,7 +145,7 @@ def main() -> None:
     os.chdir(ROOT)
     server = ThreadingHTTPServer(("127.0.0.1", PORT), WarRoomHandler)
     print(f"OPSD War Room serving http://127.0.0.1:{PORT}/")
-    print(f"  API: POST /api/desk  POST /api/slack  GET /api/events/stream")
+    print(f"  API: POST /api/desk  POST /api/slack  POST /api/briefing  GET /api/events/stream")
     try:
         server.serve_forever()
     except KeyboardInterrupt:
