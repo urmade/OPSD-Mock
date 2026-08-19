@@ -1,0 +1,69 @@
+{
+  "model": "grok-4.6-stub",
+  "badge": "grok-4.6 (stub)",
+  "recap": "FRA thunderstorm 14:00–18:00Z Thu 20 Aug impacts 27 flights in the 74-flight slice. Proposed cancel set: 8 flights (LH400, LH1230, OS211, SN315, LX328, LH041, LH692, LH136) affecting 574 PAX. Six crew pairings break FDP limits; FRA-C-441 on LH041 already at 11:40 duty. Recommendation: cancel set + reprotect via partner hubs. Knox gate required before any OCC write-back.",
+  "storm": {
+    "event": "FRA thunderstorm",
+    "window": "14:00–18:00Z",
+    "day": "2026-08-20",
+    "impacted": 27,
+    "cancels": 8,
+    "pax": 574
+  },
+  "briefing": {
+    "idle": {
+      "status": "MONITORING",
+      "statusClass": "monitoring",
+      "headline": "No active disruption in the 74-flight slice — routine OCC watch.",
+      "bullets": [
+        "7-day NetLine window 17 MON – 23 SUN · 15 tails on the board",
+        "FRA hub nominal; no weather band painted",
+        "Agents idle — Tower, Gantt, PAX, Crew, Knox, Apron standing by",
+        "Proposal desk empty; Knox residency gate armed (proposal-only)"
+      ],
+      "actions": "Monitor slice. Trigger FRA thunderstorm scenario when ready to rehearse disruption flow.",
+      "updated": "08:00Z"
+    },
+    "storm": {
+      "status": "ACTIVE DISRUPTION",
+      "statusClass": "active",
+      "headline": "FRA thunderstorm 14:00–18:00Z Thu 20 Aug — 27 flights overlap the WX window.",
+      "bullets": [
+        "Weather: convective TS over FRA; red band on day 3 blocks afternoon departures",
+        "Impact: 27 impacted · proposed cancel set 8 · 574 PAX (DEMO PNRs)",
+        "Crew: 6 pairings break FDP; FRA-C-441 on LH041 already at 11:40 duty",
+        "Named cancels: LH400, LH1230, OS211, SN315, LX328, LH041, LH692, LH136",
+        "Agents completed analysis — proposal on desk awaiting human review"
+      ],
+      "actions": "Review cancel table and crew breaks. Reject individual flights if needed, then Knox gate before any OCC apply.",
+      "updated": "14:05Z"
+    },
+    "revised": {
+      "status": "HUMAN REVISED",
+      "statusClass": "revised",
+      "headline": "Operator rejected 3 cancels — LH400 delay/swap, OS211 and SN315 recovered.",
+      "bullets": [
+        "Revised set: 5 cancels · 267 PAX (down from 8 / 574)",
+        "LH400: delay + tail swap to D-AIXB dep 20:30Z — not cancelled",
+        "OS211 FRA→VIE and SN315 FRA→BRU remain on schedule",
+        "Crew breaks reduced 6 → 4; FRA-C-441 on LH041 still flagged",
+        "Stamp REVISED · HUMAN EDIT on proposal desk"
+      ],
+      "actions": "Confirm revised set with crew and PAX teams. Apply to OCC only if Knox gate clears (fixture will refuse).",
+      "updated": "14:13Z"
+    },
+    "blocked": {
+      "status": "KNOX BLOCKED",
+      "statusClass": "blocked",
+      "headline": "Apply to OCC refused — proposal only, no schedule write-back.",
+      "bullets": [
+        "Knox residency gate blocked the apply path",
+        "Gantt schedule unchanged; manual lane edits are local-only",
+        "Live OCC stays dark — fixture not hosted in Frankfurt",
+        "Human remains decision maker; agents do not fly the airplane"
+      ],
+      "actions": "Acknowledge Knox modal. Export proposal for offline review or re-run scenario.",
+      "updated": "14:21Z"
+    }
+  }
+}
