@@ -1,0 +1,101 @@
+{
+  "channel": "#opsd-war-room",
+  "idle": [
+    {
+      "author": "Tower",
+      "role": "CoS / EVENT",
+      "time": "08:00",
+      "text": "Channel open. Fixture mode — NOT LIVE OCC."
+    },
+    {
+      "author": "Knox",
+      "role": "RESIDENCY GATE",
+      "time": "08:01",
+      "text": "Residency gate armed. Proposal-only path. No write-back until gate clears."
+    },
+    {
+      "author": "Gantt",
+      "role": "ROTATIONS",
+      "time": "08:02",
+      "text": "Slice painted: 74 flights · 15 tails · 7-day window 17–23 Aug."
+    }
+  ],
+  "storm": [
+    {
+      "author": "Tower",
+      "role": "CoS / EVENT",
+      "time": "14:00",
+      "text": "FRA WX alert: thunderstorm 14:00–18:00Z. Activating disruption playbook."
+    },
+    {
+      "author": "Gantt",
+      "role": "ROTATIONS",
+      "time": "14:01",
+      "text": "Storm band painted day 3. 27 flights overlap FRA window."
+    },
+    {
+      "author": "PAX",
+      "role": "REPROTECT",
+      "time": "14:02",
+      "text": "574 PAX in cancel set. Reprotect paths queued."
+    },
+    {
+      "author": "Crew",
+      "role": "FDP / PAIRING",
+      "time": "14:03",
+      "text": "6 pairings break FDP. FRA-C-441 on LH041 at 11:40 duty — flagged."
+    },
+    {
+      "author": "Knox",
+      "role": "RESIDENCY GATE",
+      "time": "14:04",
+      "text": "Proposal staged. Awaiting human review before gate check."
+    },
+    {
+      "author": "Apron",
+      "role": "COMMS",
+      "time": "14:05",
+      "text": "Desk filled: 8 cancels · 27 impacted · 574 PAX. Standing by for human edit."
+    }
+  ],
+  "revised": [
+    {
+      "author": "Tower",
+      "role": "CoS / EVENT",
+      "time": "14:10",
+      "text": "Human rejected 3 cancels (LH400, OS211, SN315). Revised set: 5 cancels · 267 PAX."
+    },
+    {
+      "author": "Gantt",
+      "role": "ROTATIONS",
+      "time": "14:11",
+      "text": "LH400 moved to delay/swap on D-AIXB. OS211 + SN315 recovered."
+    },
+    {
+      "author": "Crew",
+      "role": "FDP / PAIRING",
+      "time": "14:12",
+      "text": "Crew breaks reduced: 6 → 4. OS211/SN315 pairings no longer broken."
+    },
+    {
+      "author": "Apron",
+      "role": "COMMS",
+      "time": "14:13",
+      "text": "REVISED · HUMAN EDIT stamped on desk. Ready for Knox gate."
+    }
+  ],
+  "blocked": [
+    {
+      "author": "Knox",
+      "role": "RESIDENCY GATE",
+      "time": "14:20",
+      "text": "Apply refused. Proposal only. No write-back. Residency is the gate."
+    },
+    {
+      "author": "Apron",
+      "role": "COMMS",
+      "time": "14:21",
+      "text": "Apply to OCC blocked. Fixture is not hosted in Frankfurt. Live OCC stays dark."
+    }
+  ]
+}

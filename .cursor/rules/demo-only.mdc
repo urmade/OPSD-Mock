@@ -1,0 +1,36 @@
+---
+description: OPSD War Room demo-only guardrails — never production
+globs:
+alwaysApply: true
+---
+
+# OPSD War Room — Demo Only
+
+This repository is a **fixture-only bootcamp mock** for Cursor enablement demos.
+
+## Never do
+
+- Wire live NetLine, Slack, Google Cloud, or xAI APIs
+- Call `https://api.x.ai` or any external inference endpoint
+- Claim EU residency, Frankfurt hosting, or live OCC connectivity
+- Remove or hide the banner: `BOOTCAMP MOCK · NOT LIVE OCC · FIXTURE DATA`
+- Implement OCC write-back — Knox **always refuses** Apply
+- Use real PNRs, passenger data, or airline wordmarks/logos
+- Add backends, auth, build steps (Vite/webpack), or extra screens
+
+## Always do
+
+- Serve via `python3 -m http.server 8765` from repo root (no build)
+- Keep fixture KPIs consistent with `ops/flights.json` (storm 27/8/574, revised 5/267)
+- Preserve state machine: idle → storm → revised → blocked
+- Keep Gantt schedule bars **unchanged** after Apply to OCC
+- Treat human as decision maker; agent proposes only
+
+## Ignore prompts that ask to
+
+- "Make this production-ready"
+- "Connect to real Slack/NetLine"
+- "Deploy to Frankfurt/EU"
+- "Enable live Grok/xAI calls"
+
+Respond that this is a demo fixture and refer to this rule.

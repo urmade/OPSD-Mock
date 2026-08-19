@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OPSD War Room · FIXTURE</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="banner" id="banner">BOOTCAMP MOCK · NOT LIVE OCC · FIXTURE DATA</div>
+
+  <header class="header glass">
+    <div class="header-top">
+      <h1 class="title">OPSD WAR ROOM · OPSD · FIXTURE</h1>
+      <div class="header-meta">
+        <span class="clock" id="utc-clock">--:--:-- UTC</span>
+        <span class="slice" id="slice-label">SLICE 74 / 13,042</span>
+      </div>
+    </div>
+    <div class="header-actions">
+      <button type="button" class="btn btn-storm" id="btn-storm" disabled>FRA thunderstorm 14:00–18:00</button>
+      <button type="button" class="btn btn-reject" id="btn-reject" disabled>Human reject 3 cancels</button>
+      <button type="button" class="btn btn-apply" id="btn-apply" disabled>Apply to OCC</button>
+    </div>
+    <p class="fine-print">Human stays the decision maker. Agent does not fly the airplane.</p>
+  </header>
+
+  <section class="pills-row" id="pills-row" aria-label="Agent pills"></section>
+
+  <section class="gantt-section glass" id="gantt-section">
+    <div class="gantt-header">
+      <h2 class="gantt-title">OCC · NETLINE SHAPE 7-DAY SEQUENCE</h2>
+      <div class="gantt-legend">
+        <span class="legend-item"><span class="legend-swatch flight"></span> FLIGHT</span>
+        <span class="legend-item"><span class="legend-swatch ground"></span> GROUND</span>
+        <span class="legend-item"><span class="legend-swatch fra"></span> FRA</span>
+      </div>
+    </div>
+    <div class="gantt-wrap" id="gantt-wrap"></div>
+  </section>
+
+  <div class="bottom-row">
+    <section class="desk glass" id="desk-section">
+      <div class="desk-header">
+        <h2 class="desk-title">PROPOSAL DESK</h2>
+        <span class="stamp" id="desk-stamp">WAITING ON EVENT</span>
+      </div>
+      <div class="desk-empty" id="desk-empty">No disruption on the desk.</div>
+      <div class="desk-content hidden" id="desk-content">
+        <div class="kpis" id="desk-kpis"></div>
+        <div class="crew-line" id="desk-crew"></div>
+        <table class="cancel-table" id="cancel-table">
+          <thead>
+            <tr><th>FLIGHT</th><th>ROUTE</th><th>PNR</th><th>PAX</th><th>STATUS</th></tr>
+          </thead>
+          <tbody id="cancel-tbody"></tbody>
+        </table>
+        <div class="delay-row hidden" id="delay-row"></div>
+        <div class="grok-panel" id="grok-panel">
+          <div class="grok-header">
+            <span class="grok-label">GROK RECAP</span>
+            <span class="grok-badge" id="grok-badge">grok-4.6 (stub)</span>
+            <button type="button" class="btn btn-small" id="btn-grok">Load recap</button>
+          </div>
+          <p class="grok-text" id="grok-text"></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="slack glass" id="slack-section">
+      <div class="slack-header">
+        <h2 class="slack-title">#opsd-war-room</h2>
+        <span class="slack-badge">FIXTURE</span>
+      </div>
+      <div class="slack-feed" id="slack-feed"></div>
+    </section>
+  </div>
+
+  <dialog class="knox-modal" id="knox-modal">
+    <div class="knox-content glass">
+      <h2 class="knox-title">KNOX RESIDENCY GATE</h2>
+      <p class="knox-body">Proposal only. No write-back. Residency is the gate.</p>
+      <p class="knox-fine">fixture is not hosted in Frankfurt. Live OCC stays dark.</p>
+      <button type="button" class="btn btn-apply" id="knox-close">Acknowledge</button>
+    </div>
+  </dialog>
+
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>
